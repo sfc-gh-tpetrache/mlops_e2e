@@ -1,0 +1,32 @@
+# Packaging manifest for the demo's src/ packages.
+#
+# Why this file is needed:
+#   The notebook (notebooks/end-2-end-mlops-demo.ipynb, cell 1) runs
+#   `%pip install -e ..` so that `import demo_functions` (and `pdm_pipeline`)
+#   resolve inside the Snowsight/Jupyter kernel. That editable install requires
+#   this manifest at the repo root.
+#
+# Note: the scripts/ and ML Jobs do NOT rely on this install -- they add src/ to
+#   sys.path or upload the package via `imports=[("src/pdm_pipeline/", ...)]`.
+#   `packages.find where=["src"]` picks up BOTH src/demo_functions (data-gen
+#   helpers) and src/pdm_pipeline (the production pipeline). ML libraries
+#   (xgboost, scikit-learn, snowflake-ml-python) come from the ML Jobs container
+#   runtime, so they are intentionally not listed here.
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdm_demo"
+version = "1"
+description = "Predictive-maintenance MLOps demo: data-gen helpers (demo_functions) and the production pipeline (pdm_pipeline)."
+dependencies = [
+    "pandas",
+    "numpy",
+    "snowflake-snowpark-python>=1.39.1",
+    "plotly",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
