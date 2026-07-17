@@ -16,8 +16,7 @@ Model: predict equipment failure **1 day ahead**. Canary pair: **V1 = LogisticRe
 1. **Data Scientist** builds `notebooks/end-2-end-mlops-demo.ipynb` in Snowsight Workspaces
    (DEV). It runs the whole lifecycle in one notebook: data → Feature Store → train →
    register → serve → monitor. It's **dual-mode** (`get_active_session()` else
-   `Session.builder`), so the same notebook runs in Workspaces, locally, or via the VS Code
-   Remote Development extension.
+   `Session.builder`), so the same notebook runs in Workspaces, locally, or via the VS Code extension.
 2. **ML Engineer** uses **Cortex Code** to productionize it: split into modular scripts, run
    each step as a remote **ML Job**, wire them into a scheduled **Task Graph**, promote
    **DEV → PROD**, then **canary** a new model with a gateway + monitors before promoting it.
@@ -143,3 +142,10 @@ while V2 does (F1 ≈ 0.55).
 
 - CI/CD (git-driven DEV→PROD promotion) is **documented** in `DEMO_RUNBOOK.md` §4 but not yet implemented.
 - Next step: run the notebook from a local IDE via the **VS Code Remote Development extension** (Private Preview).
+
+## Acknowledgements
+
+This demo was originally inspired by Michael Gorkow's
+[predictive-maintenance-mlops-demo](https://github.com/michaelgorkow/snowflake-ai-demos/tree/main/predictive-maintenance-mlops-demo),
+part of the [snowflake-ai-demos](https://github.com/michaelgorkow/snowflake-ai-demos) collection.
+The original notebook provided the starting point for the data-scientist workflow shown here
