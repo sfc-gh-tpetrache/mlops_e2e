@@ -45,7 +45,7 @@ Two models compared in the canary: **V1 = LogisticRegression (baseline)**, **V2 
 
 ### Act 1 — The notebook (experimentation)
 - Open `notebooks/end-2-end-mlops-demo.ipynb` in Snowsight Workspaces. It runs end-to-end on DEV; show the Feature Store, Experiment, registered model, SPCS service, and monitor.
-- Point: same notebook runs locally or via the **VS Code Remote Development extension** (next step, below) because it uses `get_active_session()`.
+- Point: Same notebook runs in Snowsight or from VS Code via the Remote Development extension (Private Preview) — editing local, compute on Snowflake.
 
 ### Act 2 — CoCo productionizes it (the agentic part)
 Use these prompts (verbatim) with the `/machine-learning` skill:

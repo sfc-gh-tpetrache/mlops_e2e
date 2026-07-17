@@ -13,10 +13,7 @@ Model: predict equipment failure **1 day ahead**. Canary pair: **V1 = LogisticRe
 
 ## The story (two personas)
 
-1. **Data Scientist** builds `notebooks/end-2-end-mlops-demo.ipynb` in Snowsight Workspaces
-   (DEV). It runs the whole lifecycle in one notebook: data → Feature Store → train →
-   register → serve → monitor. It's **dual-mode** (`get_active_session()` else
-   `Session.builder`), so the same notebook runs in Workspaces, locally, or via the VS Code extension.
+1. **Data Scientist** builds `notebooks/end-2-end-mlops-demo.ipynb`. Same notebook runs in Snowsight or from VS Code via the Remote Development extension (Private Preview) — editing local, compute on Snowflake.
 2. **ML Engineer** uses **Cortex Code** to productionize it: split into modular scripts, run
    each step as a remote **ML Job**, wire them into a scheduled **Task Graph**, promote
    **DEV → PROD**, then **canary** a new model with a gateway + monitors before promoting it.

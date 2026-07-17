@@ -8,7 +8,7 @@
 - **Artifacts:** `notebooks/end-2-end-mlops-demo.ipynb`; `src/pdm_pipeline/*`; `src/demo_functions/*` (db-parametrized); `scripts/{run_pipeline,submit_step,submit_pipeline,dag,deploy_services,simulate_traffic}.py`; `infra/{setup_compute,create_gateway,create_monitor}.sql`, `infra/{generate_prod_data,check_network_policy}.py`.
 
 ## Narrative (personas)
-- A **Data Scientist** built `notebooks/end-2-end-mlops-demo.ipynb` in **Snowsight Workspaces** (DEV = `AI_DEMOS.IOT_PREDICTIVE_MAINTENANCE`). This notebook is the **given input**.
+- A **Data Scientist** built `notebooks/end-2-end-mlops-demo.ipynb` in **Snowsight Workspaces** (DEV = `AI_DEMOS.IOT_PREDICTIVE_MAINTENANCE`) or via the **VS Code Remote Development extension (PrPr). This notebook is the **given input**.
 - An **ML Engineer** productionizes it with **Cortex Code agentic MLOps + the `machine-learning` skill**: modularize -> remote ML Jobs -> scheduled Task Graph -> git promotion DEV->PROD -> canary rollout of two models.
 - **Everything runs in Snowflake.** Local IDE via the **VS Code Remote Development extension (Private Preview)** is a documented **next step**.
 
